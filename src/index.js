@@ -3,7 +3,8 @@ const path = require("path");
 const fs = require("fs");
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
+if (!port) throw new Error("Port not set");
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
